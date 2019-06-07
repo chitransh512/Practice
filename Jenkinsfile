@@ -1,29 +1,11 @@
-// Declarative //
+   // Declarative //
   pipeline {
-agent any
+      agent any
       stages {
-          stage('Build') {
+          stage('Example') {
               steps {
-                  echo 'Building..'
-} }
-          stage('Test') {
-              steps {
-                  echo 'Testing..'
+                  echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
               }
-          }
-          stage('Deploy') {
-              steps {
-                  echo 'Deploying....'
 } }
-} }
-  // Script //
-  node {
-      stage('Build') {
-          echo 'Building....'
-      }
-      stage('Test') {
-          echo 'Building....'
-      }
-      stage('Deploy') {
-          echo 'Deploying....'
-} }
+  }
+  //
