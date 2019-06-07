@@ -1,7 +1,20 @@
-// Script //
+// Declarative //
+  pipeline {
+      agent any
+      parameters {
+          string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I
+  greet the world?')
+}
+stages {
+          stage('Example') {
+              steps {
+                  echo "${params.Greeting} World!"
+              }
+} }
+  }
+  // Script //
+  properties([parameters([string(defaultValue: 'Hello', description: 'How should I greet
+  the world?', name: 'Greeting')])])
   node {
-      /* .. snip .. */
-      withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
-          sh 'mvn -B verify'
-      }
+      echo "${params.Greeting} World!
   }
